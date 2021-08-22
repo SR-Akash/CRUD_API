@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\API\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {}
+    "E:\\Personal Project\\CRUD_API\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {}
   },
   "projects": {
-    "E:\\API\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {
+    "E:\\Personal Project\\CRUD_API\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\API\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+        "projectUniqueName": "E:\\Personal Project\\CRUD_API\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
         "projectName": "CRUD_API",
-        "projectPath": "E:\\API\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+        "projectPath": "E:\\Personal Project\\CRUD_API\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
         "packagesPath": "C:\\Users\\Akash\\.nuget\\packages\\",
-        "outputPath": "E:\\API\\CRUD_API\\CRUD_API\\obj\\",
+        "outputPath": "E:\\Personal Project\\CRUD_API\\CRUD_API\\CRUD_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
