@@ -145,7 +145,7 @@ namespace CRUD_API.Repository
 
             var worksheet = xLWorkbook.Worksheets.Add("Student List");
             //Sub Title
-            var subTitle = worksheet.Range(2, 1, 2, 7).SetValue("Student List");
+            var subTitle = worksheet.Range(2, 1, 2, 6).SetValue("Student List");
             subTitle.Merge().Style.Font.SetBold().Font.FontSize = 16;
             subTitle.Style.Font.SetFontColor(XLColor.CoolBlack);
             subTitle.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
@@ -173,7 +173,7 @@ namespace CRUD_API.Repository
 
 
             ////Table Data
-            var dataArray = worksheet.Range(5, 1, TotalRowCount + 4, 7);
+            var dataArray = worksheet.Range(5, 1, TotalRowCount + 4, 6);
             dataArray.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
             dataArray.Style.Border.TopBorder = XLBorderStyleValues.Thin;
             dataArray.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
