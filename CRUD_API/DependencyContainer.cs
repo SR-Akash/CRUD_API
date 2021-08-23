@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CRUD_API.IRepository;
+using CRUD_API.Repository;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,7 @@ namespace CRUD_API
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            //services.AddTransient<IImportCommonDDL, ImportCommonDDL>();
+            services.AddTransient<IStudent, Student>();
         }
 
     }

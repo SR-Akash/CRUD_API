@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using CRUD_API.DbContexts;
 using CRUD_API.Helper;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRUD_API
 {
@@ -27,8 +28,8 @@ namespace CRUD_API
         private readonly IHostEnvironment _env;
         public Startup(IConfiguration configuration, IHostEnvironment env)
         {
-            Configuration = configuration;
             _env = env;
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -36,7 +37,7 @@ namespace CRUD_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddControllers();
             services.AddHttpContextAccessor();
             services.AddSwaggerGen(c =>
             {
@@ -47,16 +48,16 @@ namespace CRUD_API
             {
                 string connection = Environment.GetEnvironmentVariable("ConnectionString");
 
-                //services.AddDbContext<ReadDbContext>(options => options.UseSqlServer(connection), ServiceLifetime.Transient);
-                //services.AddDbContext<WriteDbContext>(options => options.UseSqlServer(connection), ServiceLifetime.Transient);
+                services.AddDbContext<DbContextCom>(options => options.UseSqlServer(connection), ServiceLifetime.Transient);
+               
                 Connection.testAPI = connection;
             }
             else
             {
                 var data = Configuration.GetConnectionString("Development");
-                //services.AddDbContext<ReadDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
-                //services.AddDbContext<WriteDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
 
+                services.AddDbContext<DbContextCom>(options => options.UseSqlServer(data), ServiceLifetime.Transient);
+               
                 Connection.testAPI = Configuration.GetConnectionString("Development");
             }
 

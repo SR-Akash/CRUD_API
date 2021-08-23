@@ -17,7 +17,7 @@ namespace CRUD_API.Helper
            .SetBasePath(Directory.GetDirectoryRoot(@"\"))
            .AddJsonFile("appSettings.json", false)
            .Build();
-            var connString = config.GetSection("connectionString").Value;
+            var connString = config.GetSection("ConnectionString").Value;
             return connString;
         }
     }

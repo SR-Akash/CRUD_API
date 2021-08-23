@@ -2,14 +2,10 @@
 **************************** RnD API ****************************
 
 
-********************** Write Scaffold **********************
+********************** Common Scaffold **********************
 //Windows
-scaffold-DbContext "Data Source=imakash.database.windows.net;Initial Catalog=CMS;User ID=imakash;Password=Akash25@122540;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models/Write" -ContextDir "DbContexts" -Context "WriteDbContext"  -t  -f
+scaffold-DbContext "Data Source=imakash.database.windows.net;Initial Catalog=CMS;User ID=imakash;Password=Akash25@122540;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models" -ContextDir "DbContexts" -Context "DbContextCom"  -t dbo.tblStudent -f
 
-
-*********************** Read Scaffold ***********************
-//Windows
-scaffold-DbContext "Data Source=imakash.database.windows.net;Initial Catalog=CMS;User ID=imakash;Password=Akash25@122540;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models/Read" -ContextDir "DbContexts" -Context "ReadDbContext"  -t  -f 
 
 
 
