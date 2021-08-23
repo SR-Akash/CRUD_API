@@ -52,5 +52,86 @@ namespace CRUD_API.Repository
             }
            
         }
+
+        public async Task<MessageHelper> EditStudent(StudentDTO edit)
+        {
+            try
+            {
+                var update = _dbContext.TblStudents.Where(x => x.IntStudentId == edit.StudentId && x.IsActive == true).FirstOrDefault();
+
+                if (update == null)
+                    throw new Exception("Student Update Data Not Found");
+
+                update.StrStudentName = edit.StudentName;
+                update.StrAddress = edit.Address;
+                update.StrPhoneNo = edit.PhoneNo;
+                update.StrBloodGroup = edit.BloodGroup;
+
+                _dbContext.TblStudents.Update(update);
+                await _dbContext.SaveChangesAsync();
+
+                return new MessageHelper
+                {
+                    Message = "Edited Successfully",
+                    statuscode = 200
+                };
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            
+        }
+
+        public async Task<StudentDTO> GetStudentById(long studentId)
+        {
+            try
+            {
+                var data = await Task.FromResult((from a in _dbContext.TblStudents
+                                                  where a.IsActive == true
+                                                  && a.IntStudentId == studentId
+                                                  select new StudentDTO
+                                                  {
+                                                      StudentId = a.IntStudentId,
+                                                      StudentName = a.StrStudentName,
+                                                      PhoneNo = a.StrPhoneNo,
+                                                      Address = a.StrAddress,
+                                                      BloodGroup = a.StrBloodGroup,
+                                                      InsertDateTime = a.DteInsertDateTime.Date
+                                                  }).FirstOrDefault());
+
+                if (data == null)
+                    throw new Exception("Student Data Not Found");
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<StudentDTO>> GetStudentList()
+        {
+            try
+            {
+                var data = await Task.FromResult((from a in _dbContext.TblStudents
+                                                  where a.IsActive == true
+                                                  select new StudentDTO
+                                                  {
+                                                      StudentId = a.IntStudentId,
+                                                      StudentName = a.StrStudentName,
+                                                      Address = a.StrAddress,
+                                                      BloodGroup = a.StrBloodGroup,
+                                                      PhoneNo = a.StrPhoneNo
+                                                  }).ToList());
+
+                return data;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

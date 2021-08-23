@@ -10,5 +10,9 @@ namespace CRUD_API.IRepository
     public interface IStudent
     {
         public Task<MessageHelper> CreateStudent(StudentDTO create);
+        public Task<MessageHelper> EditStudent(StudentDTO edit);
+        public Task<StudentDTO> GetStudentById(long studentId);
+        public Task<List<StudentDTO>> GetStudentList();
     }
 }
+
