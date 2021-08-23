@@ -75,7 +75,7 @@ namespace CRUD_API.Controllers
 
             var dt = await _IRepository.GetStudentList();
 
-            return await Student.GetExcelDoanload(dt);
+            return await Student.GetExcelDownload(dt);
 
         }
     }

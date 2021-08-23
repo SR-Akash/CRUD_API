@@ -137,7 +137,7 @@ namespace CRUD_API.Repository
             }
         }
 
-        public static async Task<IActionResult> GetExcelDoanload(List<StudentDTO> dt)
+        public static async Task<IActionResult> GetExcelDownload(List<StudentDTO> dt)
         {
             int TotalRowCount = dt.Count;
 
