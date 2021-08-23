@@ -1,9 +1,12 @@
-﻿using CRUD_API.DbContexts;
+﻿using ClosedXML.Excel;
+using CRUD_API.DbContexts;
 using CRUD_API.DTO;
 using CRUD_API.Helper;
 using CRUD_API.IRepository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -132,6 +135,74 @@ namespace CRUD_API.Repository
             {
                 throw e;
             }
+        }
+
+        public static async Task<IActionResult> GetExcelDoanload(List<StudentDTO> dt)
+        {
+            int TotalRowCount = dt.Count;
+
+            XLWorkbook xLWorkbook = new XLWorkbook();
+
+            var worksheet = xLWorkbook.Worksheets.Add("Student List");
+            //Sub Title
+            var subTitle = worksheet.Range(2, 1, 2, 7).SetValue("Student List");
+            subTitle.Merge().Style.Font.SetBold().Font.FontSize = 16;
+            subTitle.Style.Font.SetFontColor(XLColor.CoolBlack);
+            subTitle.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            subTitle.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            ////Table Header
+            var header = worksheet.Range(4, 1, 4, 7);
+            header.Style.Font.SetBold();
+            header.Style.Fill.SetBackgroundColor(XLColor.CoolBlack);
+            header.Style.Font.SetFontColor(XLColor.White);
+            header.Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+            header.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            header.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            header.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            header.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+
+            int hSl = 1;
+
+            header.Cell(1, hSl++).SetValue("Student Id");
+            header.Cell(1, hSl++).SetValue("Student Name");
+            header.Cell(1, hSl++).SetValue("Phone No");
+            header.Cell(1, hSl++).SetValue("Address");
+            header.Cell(1, hSl++).SetValue("Blood Group");
+            header.Cell(1, hSl++).SetValue("Date");
+
+
+            ////Table Data
+            var dataArray = worksheet.Range(5, 1, TotalRowCount + 4, 7);
+            dataArray.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            dataArray.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            dataArray.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            dataArray.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+
+            var rowIndex = 1;
+            foreach (var row in dt)
+            {
+                int dSl = 1;
+                //dataArray.Cell(rowIndex, dSl++).SetValue(rowIndex.ToString());
+                dataArray.Cell(rowIndex, dSl++).SetValue(row.StudentId.ToString());
+                dataArray.Cell(rowIndex, dSl++).SetValue(row.StudentName.ToString());
+                dataArray.Cell(rowIndex, dSl++).SetValue(row.PhoneNo.ToString());
+                dataArray.Cell(rowIndex, dSl++).SetValue(row.Address.ToString());
+                dataArray.Cell(rowIndex, dSl++).SetValue(row.BloodGroup.ToString());
+                dataArray.Cell(rowIndex, dSl++).SetValue(row.InsertDateTime.ToString());
+
+                rowIndex++;
+            }
+            worksheet.Columns().AdjustToContents();
+
+            MemoryStream MS = new MemoryStream();
+            xLWorkbook.SaveAs(MS);
+            MS.Position = 0;
+
+            return new FileStreamResult(MS, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+            {
+                FileDownloadName = "StudentList.xlsx"
+            };
         }
     }
 }

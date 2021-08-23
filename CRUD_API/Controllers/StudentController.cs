@@ -1,6 +1,7 @@
 ﻿using CRUD_API.DTO;
 using CRUD_API.Helper;
 using CRUD_API.IRepository;
+using CRUD_API.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -64,6 +65,17 @@ namespace CRUD_API.Controllers
                 return NotFound();
             }
             return Ok(dt);
+
+        }
+
+        [HttpGet]
+        [Route("GetExcelDownload")]
+        public async Task<IActionResult> GetExcelDownload()
+        {
+
+            var dt = await _IRepository.GetStudentList();
+
+            return await Student.GetExcelDoanload(dt);
 
         }
     }
