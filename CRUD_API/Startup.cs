@@ -56,7 +56,7 @@ namespace CRUD_API
             {
                 var data = Configuration.GetConnectionString("Development");
 
-                services.AddDbContext<DbContextCom>(options => options.UseSqlServer(data), ServiceLifetime.Transient);
+                services.AddDbContext<DbContextCom>(options => options.UseSqlServer(data));
                
                 Connection.testAPI = Configuration.GetConnectionString("Development");
             }
