@@ -204,5 +204,25 @@ namespace CRUD_API.Repository
                 FileDownloadName = "StudentList.xlsx"
             };
         }
+
+        public async Task<Dictionary<long,string>> GetDictornaryData()
+        {
+            Dictionary <long, string> getData = new Dictionary<long, string>();
+
+            var data = await Task.FromResult((from a in _dbContext.TblStudents
+                                             where a.IsActive == true
+                                             select new GetCommonDTO
+                                             {
+                                                 Value = a.IntStudentId,
+                                                 Label = a.StrStudentName
+                                             }).ToList());
+
+            foreach(var itm in data)
+            {
+                getData.Add(itm.Value, itm.Label);
+            }
+            return getData;
+   
+        }
     }
 }

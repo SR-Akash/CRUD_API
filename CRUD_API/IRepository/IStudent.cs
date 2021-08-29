@@ -13,6 +13,7 @@ namespace CRUD_API.IRepository
         public Task<MessageHelper> EditStudent(StudentDTO edit);
         public Task<StudentDTO> GetStudentById(long studentId);
         public Task<List<StudentDTO>> GetStudentList();
+        public Task<Dictionary<long, string>> GetDictornaryData();
     }
 }
 

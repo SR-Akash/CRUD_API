@@ -78,5 +78,19 @@ namespace CRUD_API.Controllers
             return await Student.GetExcelDownload(dt);
 
         }
+
+        [HttpGet]
+        [Route("GetDictornaryData")]
+        public async Task<IActionResult> GetDictornaryData()
+        {
+
+            var dt = await _IRepository.GetDictornaryData();
+            if (dt == null)
+            {
+                return NotFound();
+            }
+            return Ok(dt);
+
+        }
     }
 }
