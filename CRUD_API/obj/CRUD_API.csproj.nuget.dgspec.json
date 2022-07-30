@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MY PROJECT\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {}
+    "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {}
   },
   "projects": {
-    "C:\\MY PROJECT\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {
+    "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MY PROJECT\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+        "projectUniqueName": "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
         "projectName": "CRUD_API",
-        "projectPath": "C:\\MY PROJECT\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
-        "packagesPath": "C:\\Users\\imAKASH\\.nuget\\packages\\",
-        "outputPath": "C:\\MY PROJECT\\CRUD_API\\CRUD_API\\obj\\",
+        "projectPath": "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+        "packagesPath": "C:\\Users\\Akash\\.nuget\\packages\\",
+        "outputPath": "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\imAKASH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Akash\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,6 +94,18 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.2, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[5.78.0, )"
+            },
+            "Twilio.AspNet.Core": {
+              "target": "Package",
+              "version": "[5.77.0, )"
+            },
+            "Twilio.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.77.0, )"
             }
           },
           "imports": [
@@ -111,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
