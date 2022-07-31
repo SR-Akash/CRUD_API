@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {}
+    "D:\\Personal\\Project\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {}
   },
   "projects": {
-    "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {
+    "D:\\Personal\\Project\\CRUD_API\\CRUD_API\\CRUD_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+        "projectUniqueName": "D:\\Personal\\Project\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
         "projectName": "CRUD_API",
-        "projectPath": "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+        "projectPath": "D:\\Personal\\Project\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
         "packagesPath": "C:\\Users\\Akash\\.nuget\\packages\\",
-        "outputPath": "E:\\P R O J E C T\\CRUD_API\\CRUD_API\\obj\\",
+        "outputPath": "D:\\Personal\\Project\\CRUD_API\\CRUD_API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\Akash\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -126,7 +123,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

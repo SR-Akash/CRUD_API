@@ -20,11 +20,11 @@ namespace CRUD_API.Controllers
     public class SMSController : TwilioController
     {
         [HttpPost]
-        [Route("UploadFile")]
+        [Route("sendSMS")]
         public ActionResult sendSMS()
         {
-            string accountSid = "ACbf6323f068498bcadfbc769892a2d084";
-            var authToken = "39b829c6ea7d0db33ef5de312744a3dd";
+            string accountSid = "";
+            var authToken = "";
 
             TwilioClient.Init(accountSid, authToken);
 
