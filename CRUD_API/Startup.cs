@@ -20,6 +20,8 @@ using Microsoft.IdentityModel.Tokens;
 using CRUD_API.DbContexts;
 using CRUD_API.Helper;
 using Microsoft.EntityFrameworkCore;
+using DinkToPdf.Contracts;
+using DinkToPdf;
 
 namespace CRUD_API
 {
@@ -37,6 +39,24 @@ namespace CRUD_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region DinkToPdf Config OS wise.
+            var OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription.ToLower();
+            var context = new CustomAssemblyLoadContext();
+
+            if (OsPlatform.Contains("windows"))
+            {
+                // This "libwkhtmltox.dll" for Windows server;
+                context.LoadUnmanagedLibrary(Path.Combine(Directory.GetCurrentDirectory(), "libwkhtmltox.dll"));
+            }
+            else
+            {
+                // This "libwkhtmltox.so" for Linux server;
+                context.LoadUnmanagedLibrary(Path.Combine(Directory.GetCurrentDirectory(), "libwkhtmltox.so"));
+            }
+
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+            #endregion
+
             services.AddControllers();
             services.AddHttpContextAccessor();
             services.AddSwaggerGen(c =>
