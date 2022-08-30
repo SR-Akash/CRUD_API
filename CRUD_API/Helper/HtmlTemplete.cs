@@ -17,16 +17,15 @@ namespace CRUD_API.Helper
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   
-    <title>Campaign {DateTime.Now.ToString("dd-MM-yyyy")}</title>
 </head>
 <body>
-<div style=' width: 100%; margin: 100;'>
+<div style='max-width: 400px;height:auto; margin: 100;'>
 ");
             foreach (var item in image)
             {
                 sb.Append($@"
     <div style='display: inline-block;
-                  width: 20%;
+                  max-width: 100px;
                   height: 100px;'>
      
         <div style='margin:10px;bottom-margin-10px'>
