@@ -293,3 +293,8 @@ D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\CRUD_API.pdb
 D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\CRUD_API.genruntimeconfig.cache
 D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\ref\CRUD_API.dll
 D:\Personal\Project\CRUD_API\CRUD_API\bin\Debug\net5.0\DinkToPdf.dll
+D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\staticwebassets\CRUD_API.StaticWebAssets.Pack.cache
+D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\staticwebassets\msbuild.CRUD_API.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\staticwebassets\msbuild.build.CRUD_API.props
+D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.CRUD_API.props
+D:\Personal\Project\CRUD_API\CRUD_API\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.CRUD_API.props

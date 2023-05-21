@@ -23,18 +23,18 @@ namespace CRUD_API.Controllers
         [Route("sendSMS")]
         public ActionResult sendSMS()
         {
-            string accountSid = "";
-            var authToken = "";
+            string accountSid = "ACbf6323f068498bcadfbc769892a2d084";
+            var authToken = "c04919e21a52eb8bae9861da5fa27afd";
 
             TwilioClient.Init(accountSid, authToken);
 
             var to = new PhoneNumber("+8801634860323");
-            var from = new PhoneNumber("+15189193142");
+            var from = new PhoneNumber("+12543293709");
 
             var message = MessageResource.Create(
                 to: to,
                 from: from,
-                body: "This is just a SMS test"
+                body: "Cybersecurity threat: A new malware has been discovered that can steal your personal information, including your passwords and credit card numbers.\r\n\r\nAction: Update your antivirus software and be careful about what websites you visit and what emails you open."
                 );
 
             return Content(message.Sid);
