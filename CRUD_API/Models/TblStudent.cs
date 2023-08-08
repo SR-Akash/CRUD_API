@@ -14,5 +14,6 @@ namespace CRUD_API.Models
         public string StrBloodGroup { get; set; }
         public DateTime DteInsertDateTime { get; set; }
         public bool IsActive { get; set; }
+        public string ImageString { get; set; }
     }
 }

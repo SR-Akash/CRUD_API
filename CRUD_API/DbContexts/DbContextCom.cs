@@ -25,7 +25,7 @@ namespace CRUD_API.DbContexts
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=imakash.database.windows.net;Initial Catalog=CMS;User ID=imakash;Password=Akash25@122540;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;");
+                optionsBuilder.UseSqlServer("Data Source=10.209.99.244;Initial Catalog=SME;User ID=smeapp;Password=sds#dt454sesa0wdnp@1vpo#98;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;");
             }
         }
 
@@ -37,35 +37,27 @@ namespace CRUD_API.DbContexts
             {
                 entity.HasKey(e => e.IntStudentId);
 
-                entity.ToTable("tblStudent");
+                entity.ToTable("TblStudent");
 
-                entity.Property(e => e.IntStudentId).HasColumnName("intStudentId");
+                entity.Property(e => e.DteInsertDateTime).HasColumnType("date");
 
-                entity.Property(e => e.DteInsertDateTime)
-                    .HasColumnType("datetime")
-                    .HasColumnName("dteInsertDateTime");
-
-                entity.Property(e => e.IsActive).HasColumnName("isActive");
+                entity.Property(e => e.ImageString).HasMaxLength(50);
 
                 entity.Property(e => e.StrAddress)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("strAddress");
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.StrBloodGroup)
                     .IsRequired()
-                    .HasMaxLength(20)
-                    .HasColumnName("strBloodGroup");
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.StrPhoneNo)
                     .IsRequired()
-                    .HasMaxLength(15)
-                    .HasColumnName("strPhoneNo");
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.StrStudentName)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("strStudentName");
+                    .HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

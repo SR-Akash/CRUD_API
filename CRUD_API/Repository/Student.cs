@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace CRUD_API.Repository
@@ -15,7 +17,6 @@ namespace CRUD_API.Repository
     public class Student : IStudent
     {
         private readonly DbContextCom _dbContext;
-
         public Student(DbContextCom dbContext)
         {
             _dbContext = dbContext;
@@ -28,7 +29,7 @@ namespace CRUD_API.Repository
                 var check = _dbContext.TblStudents.Where(x => x.StrPhoneNo == create.PhoneNo && x.IsActive == true).FirstOrDefault();
 
                 if (check != null)
-                    throw new Exception("Student with Phone No [ "+create.PhoneNo+" ] is Already Exist");
+                    throw new Exception("Student with Phone No [ " + create.PhoneNo + " ] is Already Exist");
 
                 var entity = new Models.TblStudent
                 {
@@ -49,11 +50,11 @@ namespace CRUD_API.Repository
                     Message = "Create Successfully"
                 };
             }
-            catch( Exception )
+            catch (Exception)
             {
                 throw;
             }
-           
+
         }
 
         public async Task<MessageHelper> EditStudent(StudentDTO edit)
@@ -79,11 +80,11 @@ namespace CRUD_API.Repository
                     statuscode = 200
                 };
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
-            
+
         }
 
         public async Task<StudentDTO> GetStudentById(long studentId)
@@ -126,12 +127,13 @@ namespace CRUD_API.Repository
                                                       StudentName = a.StrStudentName,
                                                       Address = a.StrAddress,
                                                       BloodGroup = a.StrBloodGroup,
-                                                      PhoneNo = a.StrPhoneNo
+                                                      PhoneNo = a.StrPhoneNo,
+                                                      ImagePath = a.ImageString
                                                   }).ToList());
 
                 return data;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -205,24 +207,49 @@ namespace CRUD_API.Repository
             };
         }
 
-        public async Task<Dictionary<long,string>> GetDictornaryData()
+        public async Task<Dictionary<long, string>> GetDictornaryData()
         {
-            Dictionary <long, string> getData = new Dictionary<long, string>();
+            Dictionary<long, string> getData = new Dictionary<long, string>();
 
             var data = await Task.FromResult((from a in _dbContext.TblStudents
-                                             where a.IsActive == true
-                                             select new GetCommonDTO
-                                             {
-                                                 Value = a.IntStudentId,
-                                                 Label = a.StrStudentName
-                                             }).ToList());
+                                              where a.IsActive == true
+                                              select new GetCommonDTO
+                                              {
+                                                  Value = a.IntStudentId,
+                                                  Label = a.StrStudentName
+                                              }).ToList());
 
-            foreach(var itm in data)
+            foreach (var itm in data)
             {
                 getData.Add(itm.Value, itm.Label);
             }
             return getData;
-   
+
+        }
+        private readonly string _smtpServer = "smtp-relay.sendinblue.com";
+        private readonly int _smtpPort = 587;
+        private readonly string _smtpUsername = "akashtah25@gmail.com";
+        private readonly string _smtpPassword = "hxNXnJM6jAW0G3Sp";
+        public async Task<string> SendEmailAsync(string toEmail, string subject, string message)
+        {
+            using (var smtpClient = new SmtpClient(_smtpServer)
+            {
+                Port = _smtpPort,
+                Credentials = new NetworkCredential(_smtpUsername, _smtpPassword),
+                EnableSsl = true,
+            })
+            {
+                using (var mailMessage = new MailMessage(_smtpUsername, toEmail)
+                {
+                    Subject = subject,
+                    Body = message,
+                    IsBodyHtml = true,
+                })
+                {
+                    await smtpClient.SendMailAsync(mailMessage);
+                }
+            }
+            return "OK";
         }
     }
 }

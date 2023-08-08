@@ -16,10 +16,12 @@ namespace CRUD_API.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudent _IRepository;
+        private readonly IStudent _emailService;
 
-        public StudentController(IStudent IRepository)
+        public StudentController(IStudent IRepository, IStudent emailService)
         {
             _IRepository = IRepository;
+            _emailService = emailService;
         }
 
         [HttpPost]
@@ -91,6 +93,25 @@ namespace CRUD_API.Controllers
             }
             return Ok(dt);
 
+        }
+
+
+
+
+
+        [HttpPost("send")]
+        public async Task<IActionResult> SendEmail(string toEmail, string subject, string message)
+        {
+            try
+            {
+                await _emailService.SendEmailAsync(toEmail, subject, message);
+                return Ok("Email sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, log errors, etc.
+                return BadRequest("An error occurred while sending the email.");
+            }
         }
     }
 }

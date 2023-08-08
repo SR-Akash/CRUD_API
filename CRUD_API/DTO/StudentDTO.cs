@@ -13,5 +13,6 @@ namespace CRUD_API.DTO
         public string Address { get; set; }
         public string BloodGroup { get; set; }
         public DateTime InsertDateTime { get; set; }
+        public string ImagePath { get; set; }
     }
 }

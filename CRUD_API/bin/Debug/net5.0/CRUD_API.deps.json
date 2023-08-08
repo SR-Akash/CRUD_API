@@ -10,6 +10,10 @@
       "NET",
       "NET5_0",
       "NETCOREAPP",
+      "HAS_UNO",
+      "UNO_HAS_FRAMEWORKELEMENT_MEASUREOVERRIDE",
+      "UNO_HAS_NO_IDEPENDENCYOBJECT",
+      "UNO_REFERENCE_API",
       "NET5_0_OR_GREATER",
       "NETCOREAPP1_0_OR_GREATER",
       "NETCOREAPP1_1_OR_GREATER",
@@ -49,6 +53,8 @@
           "Twilio": "5.78.0",
           "Twilio.AspNet.Core": "5.77.0",
           "Twilio.AspNet.Mvc": "5.77.0",
+          "Uno.UI": "4.6.19",
+          "WindowsAzure.Storage": "9.3.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -1659,6 +1665,20 @@
           "runtime.native.System": "4.3.0"
         }
       },
+      "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Runtime.InteropServices.WindowsRuntime.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
+        },
+        "compile": {
+          "ref/netstandard1.0/System.Runtime.InteropServices.WindowsRuntime.dll": {}
+        }
+      },
       "System.Runtime.Numerics/4.3.0": {
         "dependencies": {
           "System.Globalization": "4.3.0",
@@ -1968,6 +1988,110 @@
         },
         "compile": {
           "lib/net462/Twilio.AspNet.Mvc.dll": {}
+        }
+      },
+      "Uno.Diagnostics.Eventing/2.0.1": {
+        "runtime": {
+          "lib/net5.0/Uno.Diagnostics.Eventing.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Uno.Diagnostics.Eventing.dll": {}
+        }
+      },
+      "Uno.Foundation.Logging/4.6.19": {
+        "runtime": {
+          "lib/netstandard2.0/Uno.Foundation.Logging.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Uno.Foundation.Logging.dll": {}
+        }
+      },
+      "Uno.SourceGenerationTasks/4.2.0": {},
+      "Uno.UI/4.6.19": {
+        "dependencies": {
+          "System.Collections.Immutable": "5.0.0",
+          "System.Memory": "4.5.3",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.3.0",
+          "Uno.Diagnostics.Eventing": "2.0.1",
+          "Uno.Foundation.Logging": "4.6.19",
+          "Uno.SourceGenerationTasks": "4.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Uno.Foundation.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.UI.Composition.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.UI.Dispatching.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.UI.FluentTheme.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.UI.FluentTheme.v1.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.UI.FluentTheme.v2.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.UI.Toolkit.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.UI.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.Xaml.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          },
+          "lib/netstandard2.0/Uno.dll": {
+            "assemblyVersion": "255.255.255.255",
+            "fileVersion": "255.255.255.255"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Uno.Foundation.Logging.dll": {},
+          "lib/netstandard2.0/Uno.Foundation.dll": {},
+          "lib/netstandard2.0/Uno.UI.Composition.dll": {},
+          "lib/netstandard2.0/Uno.UI.Dispatching.dll": {},
+          "lib/netstandard2.0/Uno.UI.FluentTheme.dll": {},
+          "lib/netstandard2.0/Uno.UI.FluentTheme.v1.dll": {},
+          "lib/netstandard2.0/Uno.UI.FluentTheme.v2.dll": {},
+          "lib/netstandard2.0/Uno.UI.Toolkit.dll": {},
+          "lib/netstandard2.0/Uno.UI.dll": {},
+          "lib/netstandard2.0/Uno.Xaml.dll": {},
+          "lib/netstandard2.0/Uno.dll": {}
+        }
+      },
+      "WindowsAzure.Storage/9.3.3": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {
+            "assemblyVersion": "9.3.2.0",
+            "fileVersion": "9.3.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -4547,6 +4671,13 @@
       "path": "system.runtime.interopservices.runtimeinformation/4.3.0",
       "hashPath": "system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512"
     },
+    "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J4GUi3xZQLUBasNwZnjrffN8i5wpHrBtZoLG+OhRyGo/+YunMRWWtwoMDlUAIdmX0uRfpHIBDSV6zyr3yf00TA==",
+      "path": "system.runtime.interopservices.windowsruntime/4.3.0",
+      "hashPath": "system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512"
+    },
     "System.Runtime.Numerics/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -4756,6 +4887,41 @@
       "sha512": "sha512-tzHLkv14fjg6RUZks3l9EG1pF+++uLGsQ3qEeu6DEyzmzXESLd5TpMIwbA9Pul90VeeKLe8V9ce7FvoHcE6Txg==",
       "path": "twilio.aspnet.mvc/5.77.0",
       "hashPath": "twilio.aspnet.mvc.5.77.0.nupkg.sha512"
+    },
+    "Uno.Diagnostics.Eventing/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hd03em+Bga+w+ljCtiyc+713PQDtCB0Qkw3sBggvXXdDB2URwEc3N4TnM3vFeXpmHHZGM7dN7D8qxfiGoEEHzw==",
+      "path": "uno.diagnostics.eventing/2.0.1",
+      "hashPath": "uno.diagnostics.eventing.2.0.1.nupkg.sha512"
+    },
+    "Uno.Foundation.Logging/4.6.19": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3igEKkIl1zHtxkJrpz1Zdj8koVjBWakoWHgOGJ+R03npKg1bvaG5kOrA1Bhq6T1YeyY0tZRp1v8oK/CNEleJ1g==",
+      "path": "uno.foundation.logging/4.6.19",
+      "hashPath": "uno.foundation.logging.4.6.19.nupkg.sha512"
+    },
+    "Uno.SourceGenerationTasks/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pQazuxoMofxLEzsDcrBnmEp1nB/N19IWKsq5Ffi+i9pAXXdoOR14MrMCuY9kXmnqnGFHRl5T2Z9kY0SUGsvdFA==",
+      "path": "uno.sourcegenerationtasks/4.2.0",
+      "hashPath": "uno.sourcegenerationtasks.4.2.0.nupkg.sha512"
+    },
+    "Uno.UI/4.6.19": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I4a6NRil5DWHB2FbxhPf5aUT0YHfm7ATjlnANuC1KtZh6W6LGPa2NHF8ZIv19gSbdIl5ctCBSmSomck82DykEw==",
+      "path": "uno.ui/4.6.19",
+      "hashPath": "uno.ui.4.6.19.nupkg.sha512"
+    },
+    "WindowsAzure.Storage/9.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VUV8j6dzkU/7vDgk5k+ob5g7nnch2fNByr0p9aOxMGFGk+tAnTehrZ4qnClF04CVozP1GNN2zrnbsxCmr+iZBg==",
+      "path": "windowsazure.storage/9.3.3",
+      "hashPath": "windowsazure.storage.9.3.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",

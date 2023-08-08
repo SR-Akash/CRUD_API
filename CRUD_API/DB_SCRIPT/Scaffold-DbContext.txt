@@ -4,7 +4,7 @@
 
 ********************** Common Scaffold **********************
 //Windows
-scaffold-DbContext "Data Source=imakash.database.windows.net;Initial Catalog=CMS;User ID=imakash;Password=Akash25@122540;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models" -ContextDir "DbContexts" -Context "DbContextCom"  -t dbo.tblStudent -f
+scaffold-DbContext "Data Source=10.209.99.244;Initial Catalog=SME;User ID=smeapp;Password=sds#dt454sesa0wdnp@1vpo#98;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models" -ContextDir "DbContexts" -Context "DbContextCom"  -t dbo.tblStudent -f
 
 
 

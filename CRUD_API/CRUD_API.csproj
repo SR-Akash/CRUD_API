@@ -24,6 +24,8 @@
     <PackageReference Include="Twilio" Version="5.78.0" />
     <PackageReference Include="Twilio.AspNet.Core" Version="5.77.0" />
     <PackageReference Include="Twilio.AspNet.Mvc" Version="5.77.0" />
+    <PackageReference Include="Uno.UI" Version="4.6.19" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
 </Project>
