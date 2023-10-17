@@ -9693,11 +9693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Personal\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+      "projectUniqueName": "D:\\Personal Project\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
       "projectName": "CRUD_API",
-      "projectPath": "D:\\Personal\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
+      "projectPath": "D:\\Personal Project\\CRUD_API\\CRUD_API\\CRUD_API.csproj",
       "packagesPath": "C:\\Users\\Akash\\.nuget\\packages\\",
-      "outputPath": "D:\\Personal\\CRUD_API\\CRUD_API\\obj\\",
+      "outputPath": "D:\\Personal Project\\CRUD_API\\CRUD_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9831,7 +9831,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },
