@@ -36,41 +36,41 @@ namespace CRUD_API.Controllers
             _IRepository = IRepository;
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("GetDownloadMultiple")]
-        public async Task<IActionResult> GetDownloadMultiple()
-        {
-            var inputData = await _IRepository.GetStudentList();
-            CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("erpdata");
-            using (var outStream = new MemoryStream())
-            {
-                foreach (var i in inputData)
-                {
-                    CloudBlockBlob blockBlob = container.GetBlockBlobReference(i.ImagePath);
-                    StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(blockBlob.Name, CreationCollisionOption.ReplaceExisting);
-                    await blockBlob.DownloadToFileAsync(file.Path, FileMode.Create);
-                    using (var archive = new ZipArchive(outStream, ZipArchiveMode.Update, true))
-                    {
-                        foreach (var ii in inputData)
-                        {
-                            var fileInArchive = archive.CreateEntry(Path.GetFileName(ii.ImagePath), CompressionLevel.Optimal);
-                            using (var entryStream = fileInArchive.Open())
-                            {
-                                using (var fileCompressionStream = new MemoryStream(System.IO.File.ReadAllBytes(ii.ImagePath)))
-                                {
-                                    await fileCompressionStream.CopyToAsync(entryStream);
-                                }
-                            }
-                        }
-                    }
+        //[AllowAnonymous]
+        //[HttpPost]
+        //[Route("GetDownloadMultiple")]
+        //public async Task<IActionResult> GetDownloadMultiple()
+        //{
+        //    var inputData = await _IRepository.GetStudentList();
+        //    CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
+        //    CloudBlobContainer container = blobClient.GetContainerReference("erpdata");
+        //    using (var outStream = new MemoryStream())
+        //    {
+        //        foreach (var i in inputData)
+        //        {
+        //            CloudBlockBlob blockBlob = container.GetBlockBlobReference(i.ImagePath);
+        //            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(blockBlob.Name, CreationCollisionOption.ReplaceExisting);
+        //            await blockBlob.DownloadToFileAsync(file.Path, FileMode.Create);
+        //            using (var archive = new ZipArchive(outStream, ZipArchiveMode.Update, true))
+        //            {
+        //                foreach (var ii in inputData)
+        //                {
+        //                    var fileInArchive = archive.CreateEntry(Path.GetFileName(ii.ImagePath), CompressionLevel.Optimal);
+        //                    using (var entryStream = fileInArchive.Open())
+        //                    {
+        //                        using (var fileCompressionStream = new MemoryStream(System.IO.File.ReadAllBytes(ii.ImagePath)))
+        //                        {
+        //                            await fileCompressionStream.CopyToAsync(entryStream);
+        //                        }
+        //                    }
+        //                }
+        //            }
 
-                }
+        //        }
 
-                outStream.Position = 0;
-                return File(outStream.ToArray(), "application/zip", "CheckZip.zip");
-            }
-        }
+        //        outStream.Position = 0;
+        //        return File(outStream.ToArray(), "application/zip", "CheckZip.zip");
+        //    }
+        //}
     }
 }

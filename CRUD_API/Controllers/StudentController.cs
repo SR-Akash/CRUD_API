@@ -24,76 +24,76 @@ namespace CRUD_API.Controllers
             _emailService = emailService;
         }
 
-        [HttpPost]
-        [Route("CreateStudent")]
-        public async Task<MessageHelper> CreateStudent(StudentDTO Create)
-        {
-            var msg = await _IRepository.CreateStudent(Create);
-            return msg;
+        //[HttpPost]
+        //[Route("CreateStudent")]
+        //public async Task<MessageHelper> CreateStudent(StudentDTO Create)
+        //{
+        //    var msg = await _IRepository.CreateStudent(Create);
+        //    return msg;
 
-        }
+        //}
 
-        [HttpPut]
-        [Route("EditStudent")]
-        public async Task<MessageHelper> EditStudent(StudentDTO edit)
-        {
-            var msg = await _IRepository.EditStudent(edit);
-            return msg;
+        //[HttpPut]
+        //[Route("EditStudent")]
+        //public async Task<MessageHelper> EditStudent(StudentDTO edit)
+        //{
+        //    var msg = await _IRepository.EditStudent(edit);
+        //    return msg;
 
-        }
+        //}
 
-        [HttpGet]
-        [Route("GetStudentById")]
-        public async Task<IActionResult> GetStudentById(long studentId)
-        {
+        //[HttpGet]
+        //[Route("GetStudentById")]
+        //public async Task<IActionResult> GetStudentById(long studentId)
+        //{
 
-            var dt = await _IRepository.GetStudentById(studentId);
-            if (dt == null)
-            {
-                return NotFound();
-            }
-            return Ok(dt);
+        //    var dt = await _IRepository.GetStudentById(studentId);
+        //    if (dt == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(dt);
 
-        }
+        //}
 
-        [HttpGet]
-        [Route("GetStudentList")]
-        public async Task<IActionResult> GetStudentList()
-        {
+        //[HttpGet]
+        //[Route("GetStudentList")]
+        //public async Task<IActionResult> GetStudentList()
+        //{
 
-            var dt = await _IRepository.GetStudentList();
-            if (dt == null)
-            {
-                return NotFound();
-            }
-            return Ok(dt);
+        //    var dt = await _IRepository.GetStudentList();
+        //    if (dt == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(dt);
 
-        }
+        //}
 
-        [HttpGet]
-        [Route("GetExcelDownload")]
-        public async Task<IActionResult> GetExcelDownload()
-        {
+        //[HttpGet]
+        //[Route("GetExcelDownload")]
+        //public async Task<IActionResult> GetExcelDownload()
+        //{
 
-            var dt = await _IRepository.GetStudentList();
+        //    var dt = await _IRepository.GetStudentList();
 
-            return await Student.GetExcelDownload(dt);
+        //    return await Student.GetExcelDownload(dt);
 
-        }
+        //}
 
-        [HttpGet]
-        [Route("GetDictornaryData")]
-        public async Task<IActionResult> GetDictornaryData()
-        {
+        //[HttpGet]
+        //[Route("GetDictornaryData")]
+        //public async Task<IActionResult> GetDictornaryData()
+        //{
 
-            var dt = await _IRepository.GetDictornaryData();
-            if (dt == null)
-            {
-                return NotFound();
-            }
-            return Ok(dt);
+        //    var dt = await _IRepository.GetDictornaryData();
+        //    if (dt == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(dt);
 
-        }
+        //}
 
 
 

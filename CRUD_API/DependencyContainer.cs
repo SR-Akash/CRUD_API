@@ -13,6 +13,7 @@ namespace CRUD_API
         public static void RegisterServices(IServiceCollection services)
         {
             services.AddTransient<IStudent, Student>();
+            services.AddTransient<ICaching, GetItemListWithCaching>();
         }
 
     }

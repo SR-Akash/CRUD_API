@@ -57,6 +57,7 @@ namespace CRUD_API
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
             #endregion
 
+            services.AddMemoryCache();
             services.AddControllers();
             services.AddHttpContextAccessor();
             services.AddSwaggerGen(c =>
@@ -69,7 +70,7 @@ namespace CRUD_API
                 string connection = Environment.GetEnvironmentVariable("ConnectionString");
 
                 services.AddDbContext<DbContextCom>(options => options.UseSqlServer(connection), ServiceLifetime.Transient);
-               
+
                 Connection.testAPI = connection;
             }
             else
@@ -77,13 +78,13 @@ namespace CRUD_API
                 var data = Configuration.GetConnectionString("Development");
 
                 services.AddDbContext<DbContextCom>(options => options.UseSqlServer(data));
-               
+
                 Connection.testAPI = Configuration.GetConnectionString("Development");
             }
 
             services.AddControllers(opts =>
                 {
-                    if(_env.IsDevelopment())
+                    if (_env.IsDevelopment())
                     {
                         opts.Filters.Add<AllowAnonymousFilter>();
                     }
@@ -97,8 +98,8 @@ namespace CRUD_API
 
                 });
 
-            
-            
+
+
             RegisterServices(services);
 
             //services.AddControllers().AddNewtonsoftJson(options =>
